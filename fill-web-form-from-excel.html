@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to fill a web form from an Excel or CSV file, without code</title>
+  <meta name="description" content="Four ways to get spreadsheet rows into a website that has no import button, when each one makes sense, and a step-by-step method using a browser extension.">
+  <link rel="icon" href="icon-128.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>How to fill a web form from an Excel or CSV file, without code</h1>
+  <p>Many portals and back-office systems have no import button, so someone copies each spreadsheet row into a form by hand. Here are your options, starting with the one to check first.</p>
+
+  <h2>1. Look for an import or API first</h2>
+  <p>Search the site's help pages for "import", "bulk upload" or "API", or ask its support team. If one exists, use it: it's usually the quickest and most reliable route.</p>
+
+  <h2>2. Write a script</h2>
+  <p>Browser automation tools can drive a form from a file. They suit technical teams with a large, fixed job, but someone has to write the script and fix it when the page changes.</p>
+
+  <h2>3. Use a desktop automation tool</h2>
+  <p>Robotic process automation tools can record clicks and repeat them. They're powerful but take time to set up, and may need your IT team's approval.</p>
+
+  <h2>4. Use a browser extension</h2>
+  <p>This suits everyday work where a person still wants to check each record. Using RowPilot as the example:</p>
+  <ol>
+    <li>Save your sheet as CSV or .xlsx, with the column names on the first row.</li>
+    <li>Open the form in Chrome and click the RowPilot icon.</li>
+    <li>Load the file and click <strong>Read the form on this page</strong>.</li>
+    <li>Check which column goes in each field.</li>
+    <li>Fix anything listed under <strong>Check your rows</strong>.</li>
+    <li>Click <strong>Fill this row</strong>, review the page and submit it yourself.</li>
+    <li>Click <strong>Mark done, go to next</strong> and repeat.</li>
+  </ol>
+
+  <h2>Avoiding common mistakes</h2>
+  <ul>
+    <li><strong>Dates:</strong> decide whether 03/04/2026 means March or April before you start. RowPilot asks you.</li>
+    <li><strong>Dropdowns:</strong> your cell has to match one of the form's choices. Check these first.</li>
+    <li><strong>Leading zeros:</strong> a spreadsheet may turn 00123 into 123. Format ID columns as text before exporting.</li>
+    <li><strong>Site rules:</strong> some sites restrict automated tools, so check their terms first.</li>
+  </ul>
+  <p><a href="index.html">Learn more about RowPilot</a></p>
+  <footer><a href="privacy.html">Privacy</a> · <a href="mailto:xooffer@gmail.com">Support</a></footer>
+</main>
+</body>
+</html>
