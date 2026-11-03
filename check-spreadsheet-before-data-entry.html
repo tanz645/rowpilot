@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to check a spreadsheet before entering it into a form</title>
+  <meta name="description" content="Find empty required cells, bad emails, duplicates and values a form will reject before you start data entry, using simple spreadsheet formulas and a pre-fill check.">
+  <link rel="canonical" href="https://tanz645.github.io/rowpilot/check-spreadsheet-before-data-entry.html">
+  <link rel="icon" href="icon-128.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">RowPilot</a> · Guide</p>
+  <h1>How to check a spreadsheet before entering it into a form</h1>
+  <p>A single bad row can stop you midway through a data entry job. Spending a few minutes checking your sheet first means fewer rejected forms and less rework. These formulas work in both Excel and Google Sheets. Change the cell references to fit your columns.</p>
+
+  <h2>Find problems with formulas</h2>
+  <table>
+    <tr><th>Problem</th><th>Formula</th><th>Bad result</th></tr>
+    <tr><td>Empty required cell</td><td><code>=COUNTBLANK(A2:D2)</code></td><td>Above 0</td></tr>
+    <tr><td>Duplicate ID or email</td><td><code>=COUNTIF(B:B,B2)</code></td><td>Above 1</td></tr>
+    <tr><td>Email with no @</td><td><code>=ISNUMBER(SEARCH("@",C2))</code></td><td>FALSE</td></tr>
+    <tr><td>Too many characters</td><td><code>=LEN(D2)</code></td><td>Over the form's limit</td></tr>
+    <tr><td>Extra spaces</td><td><code>=LEN(D2)=LEN(TRIM(D2))</code></td><td>FALSE</td></tr>
+  </table>
+  <p>The email formula only catches the most obvious mistake. An address can contain an @ and still not work.</p>
+
+  <h2>Compare your values with the form</h2>
+  <ul>
+    <li><strong>Dropdowns:</strong> copy the form's choices into a spare column and use them as a dropdown list in your sheet (<strong>Data validation</strong> in both Excel and Google Sheets). This stops "USA" appearing where the form wants "United States".</li>
+    <li><strong>Number limits:</strong> try the form with a high and a low value to find what it accepts.</li>
+    <li><strong>Dates:</strong> make sure the whole column uses one format. A mix of day-first and month-first dates is hard to spot. <a href="fix-dates-numbers-leading-zeros-data-entry.html">See the guide to dates and numbers</a>.</li>
+  </ul>
+
+  <h2>Check against the form itself</h2>
+  <p>Formulas only know your sheet. RowPilot's <strong>Check your rows</strong> step reads the form you've opened and compares every row with what that form states, before anything is filled. It lists each problem by row:</p>
+  <ul>
+    <li>Empty cells in required fields, and required fields with no column</li>
+    <li>Email addresses in the wrong format</li>
+    <li>Dates and numbers it can't read, and numbers outside the form's limits</li>
+    <li>Values that aren't among a dropdown's or radio button's choices</li>
+    <li>Text that's too long or doesn't match a format the form requires</li>
+    <li>Files that aren't in the folder you chose</li>
+  </ul>
+  <p>Click a row in the list to jump to it. Then fix your sheet and load it again. Do this before you start filling, because changed data starts a new progress count.</p>
+
+  <h2>What no pre-check can catch</h2>
+  <ul>
+    <li><strong>Rules on the website's server:</strong> a form may only reject a value after you submit, such as an account number it doesn't recognise. Pre-checks only see the rules the page states.</li>
+    <li><strong>Duplicates:</strong> RowPilot doesn't look for repeated rows, so use the <code>COUNTIF</code> formula above.</li>
+    <li><strong>Correct-looking wrong data:</strong> a valid email for the wrong person passes every check. That's why you should still review each form before you submit it.</li>
+  </ul>
+  <div class="try">
+    <p><strong>Try it on your own form.</strong> RowPilot is a Chrome extension. The free plan covers up to 25 rows per file from a CSV or pasted rows, and every install starts with a 7-day trial of Pro.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/rowpilot-%E2%80%93-fill-web-forms/adaibliihahgcngcacgincbkpcopcjee">Add to Chrome</a>
+  </div>
+  <h2>More guides</h2>
+  <ul>
+    <li><a href="fill-web-form-from-excel.html">How to fill a web form from an Excel or CSV file</a></li>
+    <li><a href="fill-web-form-from-google-sheets.html">How to fill a web form from Google Sheets</a></li>
+    <li><a href="attach-files-to-web-form-from-spreadsheet.html">How to attach a different file to each web form entry</a></li>
+    <li><a href="enter-data-into-portal-without-import.html">How to enter data into a portal with no import button</a></li>
+    <li><a href="fix-dates-numbers-leading-zeros-data-entry.html">How to keep dates, numbers and leading zeros correct in data entry</a></li>
+  </ul>
+  <footer><a href="privacy.html">Privacy</a> · <a href="mailto:xooffer@gmail.com">Support</a></footer>
+</main>
+</body>
+</html>

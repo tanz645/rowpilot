@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to fill a web form from Google Sheets</title>
+  <meta name="description" content="Three ways to get Google Sheets rows into a website form: Apps Script, a CSV download, or pasting rows into a browser extension, with the steps and common mistakes.">
+  <link rel="canonical" href="https://tanz645.github.io/rowpilot/fill-web-form-from-google-sheets.html">
+  <link rel="icon" href="icon-128.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">RowPilot</a> · Guide</p>
+  <h1>How to fill a web form from Google Sheets</h1>
+  <p>If your data is in Google Sheets and the website has no import option, you don't have to re-type each row. The right method depends on whether you can write code, and whether someone needs to check each entry.</p>
+
+  <h2>First, check for a direct route</h2>
+  <p>Look for an import, bulk upload or API option in the website's help pages. If it has one, use it. Automation services can also connect Google Sheets to many popular apps, but they only work with apps they support, which usually rules out private portals.</p>
+
+  <h2>Option 1: Write a script</h2>
+  <p>Google Apps Script can send sheet rows to a service that offers an API. For a website with only a form, you'd need a browser automation script instead. Both suit a technical team with a large, repeating job, but someone has to maintain the code.</p>
+
+  <h2>Option 2: Paste rows into a browser extension</h2>
+  <p>This is the quickest way to start, and it suits work where a person reviews each entry. There's no file to download. Using RowPilot as the example:</p>
+  <ol>
+    <li>In Google Sheets, select your rows, including the column names at the top, and copy them.</li>
+    <li>Open the form in Chrome and click the RowPilot icon.</li>
+    <li>Click <strong>Or paste rows copied from a spreadsheet</strong>, paste, and click <strong>Use pasted rows</strong>.</li>
+    <li>Click <strong>Read the form on this page</strong> and check which column goes in each field.</li>
+    <li>Fix anything listed under <strong>Check your rows</strong>.</li>
+    <li>Click <strong>Fill this row</strong>, review the page and submit it yourself.</li>
+    <li>Click <strong>Mark done, go to next</strong> and repeat.</li>
+  </ol>
+
+  <h2>Option 3: Download a file first</h2>
+  <p>In Google Sheets, choose <strong>File → Download → Comma-separated values (.csv)</strong>. This saves only the sheet you have open. Then load that file instead of pasting. A file is handy when you want to keep an exact copy of what you entered. RowPilot's free plan reads CSV; Excel files (<strong>Microsoft Excel (.xlsx)</strong> on the same menu) need Pro.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>No column names:</strong> the first row you copy is treated as the column names, so include them.</li>
+    <li><strong>What you see is what gets copied:</strong> a date shown as 3/4/2026 is copied that way. Decide whether it means March or April, and choose the matching date order in the panel.</li>
+    <li><strong>Lost zeros:</strong> Google Sheets may turn 00123 into 123 when you type it. Set ID columns to <strong>Format → Number → Plain text</strong> before you enter them.</li>
+    <li><strong>Changing data midway:</strong> fix your sheet before you start. RowPilot tracks progress for that exact set of rows, so changed data starts a new count.</li>
+    <li><strong>Site rules:</strong> some sites restrict automated tools, so check their terms first.</li>
+  </ul>
+  <div class="try">
+    <p><strong>Try it on your own form.</strong> RowPilot is a Chrome extension. The free plan covers up to 25 rows per file from a CSV or pasted rows, and every install starts with a 7-day trial of Pro.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/rowpilot-%E2%80%93-fill-web-forms/adaibliihahgcngcacgincbkpcopcjee">Add to Chrome</a>
+  </div>
+  <h2>More guides</h2>
+  <ul>
+    <li><a href="fill-web-form-from-excel.html">How to fill a web form from an Excel or CSV file</a></li>
+    <li><a href="attach-files-to-web-form-from-spreadsheet.html">How to attach a different file to each web form entry</a></li>
+    <li><a href="enter-data-into-portal-without-import.html">How to enter data into a portal with no import button</a></li>
+    <li><a href="check-spreadsheet-before-data-entry.html">How to check a spreadsheet before entering it into a form</a></li>
+    <li><a href="fix-dates-numbers-leading-zeros-data-entry.html">How to keep dates, numbers and leading zeros correct in data entry</a></li>
+  </ul>
+  <footer><a href="privacy.html">Privacy</a> · <a href="mailto:xooffer@gmail.com">Support</a></footer>
+</main>
+</body>
+</html>

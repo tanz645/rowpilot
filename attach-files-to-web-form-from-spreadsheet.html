@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to attach a different file to each web form entry</title>
+  <meta name="description" content="How to upload a different file with each web form submission by listing file names in a spreadsheet, plus how to avoid mismatched attachments.">
+  <link rel="canonical" href="https://tanz645.github.io/rowpilot/attach-files-to-web-form-from-spreadsheet.html">
+  <link rel="icon" href="icon-128.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">RowPilot</a> · Guide</p>
+  <h1>How to attach a different file to each web form entry</h1>
+  <p>Some forms need a different contract, invoice or photo for every record. Finding the right file by hand for each entry is slow, and picking the wrong one is an easy mistake to make. You can avoid that by listing each file's name in your spreadsheet.</p>
+
+  <h2>First, check for a bulk upload</h2>
+  <p>Some systems accept a zip file or have a bulk document upload that matches files by name. If yours does, use it. The method below is for forms that take one file per entry.</p>
+
+  <h2>Step 1: Add a file name column</h2>
+  <p>Add a column to your sheet with the exact file name for each row, including the ending, such as <code>contract-ayesha.pdf</code>. Keep the column simple:</p>
+  <table>
+    <tr><th>Name</th><th>Email</th><th>Contract</th></tr>
+    <tr><td>Ayesha Rahman</td><td>ayesha@example.com</td><td>contract-ayesha.pdf</td></tr>
+    <tr><td>Lukas Weber</td><td>lukas@example.org</td><td>contract-lukas.pdf</td></tr>
+  </table>
+
+  <h2>Step 2: Put the files in one folder</h2>
+  <p>Give every file its own name, because two files with the same name can't be told apart, even in different subfolders. Each file has to be 25 MB or smaller to attach with RowPilot, and the website may set a lower limit.</p>
+
+  <h2>Step 3: Fill the form</h2>
+  <ol>
+    <li>Open the form in Chrome and click the RowPilot icon.</li>
+    <li>Load your spreadsheet and click <strong>Read the form on this page</strong>.</li>
+    <li>Match your file name column to the form's upload field.</li>
+    <li>Click <strong>Choose the folder with the files to attach</strong> and pick your folder. Chrome will ask you to confirm.</li>
+    <li>Check your rows. Any name with no matching file is listed before you fill anything.</li>
+    <li>Click <strong>Fill this row</strong>, check the file name shown on the page, and submit it yourself.</li>
+  </ol>
+  <p>Attaching files is part of RowPilot Pro, which you can try for 7 days.</p>
+
+  <h2>Avoiding mismatched files</h2>
+  <ul>
+    <li><strong>Use names you can check:</strong> a name like <code>contract-ayesha.pdf</code> is easy to compare with the row on screen. <code>scan0041.pdf</code> isn't.</li>
+    <li><strong>Upper or lower case doesn't matter:</strong> <code>Contract-Ayesha.PDF</code> matches <code>contract-ayesha.pdf</code>, but a missing or different ending won't match.</li>
+    <li><strong>Full paths are fine:</strong> if your sheet lists a full path, only the file name at the end is used.</li>
+    <li><strong>Several uploads per entry:</strong> use one column for each upload field. One cell holds one file.</li>
+    <li><strong>Sensitive files:</strong> files are read in your browser and go only into the page you ask it to fill. After that, the website's own policies apply.</li>
+  </ul>
+  <div class="try">
+    <p><strong>Try it on your own form.</strong> RowPilot is a Chrome extension. The free plan covers up to 25 rows per file from a CSV or pasted rows, and every install starts with a 7-day trial of Pro.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/rowpilot-%E2%80%93-fill-web-forms/adaibliihahgcngcacgincbkpcopcjee">Add to Chrome</a>
+  </div>
+  <h2>More guides</h2>
+  <ul>
+    <li><a href="fill-web-form-from-excel.html">How to fill a web form from an Excel or CSV file</a></li>
+    <li><a href="fill-web-form-from-google-sheets.html">How to fill a web form from Google Sheets</a></li>
+    <li><a href="enter-data-into-portal-without-import.html">How to enter data into a portal with no import button</a></li>
+    <li><a href="check-spreadsheet-before-data-entry.html">How to check a spreadsheet before entering it into a form</a></li>
+    <li><a href="fix-dates-numbers-leading-zeros-data-entry.html">How to keep dates, numbers and leading zeros correct in data entry</a></li>
+  </ul>
+  <footer><a href="privacy.html">Privacy</a> · <a href="mailto:xooffer@gmail.com">Support</a></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to keep dates, numbers and leading zeros correct in data entry</title>
+  <meta name="description" content="Why spreadsheets change dates, amounts and IDs like 00123, how to stop it in Excel and Google Sheets, and how to check the values before they go into a web form.">
+  <link rel="canonical" href="https://tanz645.github.io/rowpilot/fix-dates-numbers-leading-zeros-data-entry.html">
+  <link rel="icon" href="icon-128.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="index.html">RowPilot</a> · Guide</p>
+  <h1>How to keep dates, numbers and leading zeros correct in data entry</h1>
+  <p>Spreadsheets try to be helpful: they turn 00123 into 123 and may read 03/04/2026 as either March or April. Web forms can be strict about formats too. These are the mistakes that cause the most trouble, and how to prevent them.</p>
+
+  <h2>Leading zeros and long IDs</h2>
+  <p>IDs, ZIP codes and phone numbers often start with zeros. Spreadsheets may treat them as numbers and drop those zeros. Very long IDs can also lose digits or turn into a form like 1.23E+15.</p>
+  <ul>
+    <li><strong>Excel:</strong> select the column, choose <strong>Format Cells → Text</strong>, then enter or paste your data. Formatting afterwards won't bring back zeros that are already gone.</li>
+    <li><strong>Google Sheets:</strong> choose <strong>Format → Number → Plain text</strong> before you enter the data.</li>
+    <li><strong>Opening a CSV:</strong> double-clicking a CSV in Excel can remove the zeros. Use <strong>Data → From Text/CSV</strong> and set the column to text, or load the CSV directly into your tool without opening it first.</li>
+  </ul>
+  <p>Check the original data if an ID looks too short. Once the zeros are gone, no tool can tell they were there.</p>
+
+  <h2>Day-first or month-first dates</h2>
+  <p>03/04/2026 is 3 April in much of the world and March 4 in the US. The spreadsheet can't tell which you meant, and neither can a form, so a wrong date may go through with no error.</p>
+  <ul>
+    <li><strong>Use an unambiguous format:</strong> 2026-04-03 or 3 Apr 2026 can't be misread.</li>
+    <li><strong>Check a late date:</strong> a date like 31/12/2026 only works as day-first, so it shows you which order the column uses.</li>
+    <li><strong>Check your settings:</strong> Excel follows your computer's region, and Google Sheets uses <strong>File → Settings → Locale</strong>.</li>
+  </ul>
+  <p>RowPilot's panel has a <strong>Dates like 03/04/2026 mean</strong> setting. It converts to the format the form's date field needs. If you choose month/day/year and a row says 31/12/2026, that row appears under <strong>Check your rows</strong>. Dates that fit both orders can't be flagged, so choose carefully.</p>
+
+  <h2>Amounts and decimal separators</h2>
+  <p>Number fields usually reject currency signs and thousands separators, and some regions write 1.234,56 where others write 1,234.56. Here's how RowPilot reads each one for a number field:</p>
+  <table>
+    <tr><th>In your sheet</th><th>Goes into the form as</th></tr>
+    <tr><td>$1,250.50</td><td>1250.50</td></tr>
+    <tr><td>1.234,56</td><td>1234.56</td></tr>
+    <tr><td>45%</td><td>45</td></tr>
+    <tr><td>(500)</td><td>-500</td></tr>
+    <tr><td>1.234</td><td>1.234</td></tr>
+  </table>
+  <p>Watch out for that last row. If you meant one thousand two hundred and thirty-four, a value like 1.234 is ambiguous, so remove the separator from your sheet first. RowPilot only converts for number fields, and plain text boxes get your text exactly as it is.</p>
+
+  <h2>Yes/no and dropdown values</h2>
+  <ul>
+    <li><strong>Checkboxes:</strong> RowPilot ticks a box for yes, y, x, 1, true or on, and unticks it for no, n, 0, false, off or an empty cell. Anything else is flagged.</li>
+    <li><strong>Dropdowns:</strong> upper or lower case and punctuation don't matter, so "united states" matches "United States". An abbreviation like "USA" won't match, and it's flagged instead of guessed.</li>
+  </ul>
+
+  <h2>Quick check before you start</h2>
+  <ol>
+    <li>Compare the first five IDs with the original source.</li>
+    <li>Find a date with a day above 12 to confirm the order.</li>
+    <li>Fill one row, then read every value on the page before you submit it.</li>
+  </ol>
+  <div class="try">
+    <p><strong>Try it on your own form.</strong> RowPilot is a Chrome extension. The free plan covers up to 25 rows per file from a CSV or pasted rows, and every install starts with a 7-day trial of Pro.</p>
+    <a class="cta" href="https://chromewebstore.google.com/detail/rowpilot-%E2%80%93-fill-web-forms/adaibliihahgcngcacgincbkpcopcjee">Add to Chrome</a>
+  </div>
+  <h2>More guides</h2>
+  <ul>
+    <li><a href="fill-web-form-from-excel.html">How to fill a web form from an Excel or CSV file</a></li>
+    <li><a href="fill-web-form-from-google-sheets.html">How to fill a web form from Google Sheets</a></li>
+    <li><a href="attach-files-to-web-form-from-spreadsheet.html">How to attach a different file to each web form entry</a></li>
+    <li><a href="enter-data-into-portal-without-import.html">How to enter data into a portal with no import button</a></li>
+    <li><a href="check-spreadsheet-before-data-entry.html">How to check a spreadsheet before entering it into a form</a></li>
+  </ul>
+  <footer><a href="privacy.html">Privacy</a> · <a href="mailto:xooffer@gmail.com">Support</a></footer>
+</main>
+</body>
+</html>
